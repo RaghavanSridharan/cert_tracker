@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  job:
+    image: basics89/cert_tracker_job:1.0.0
+    volumes:
+      - ./certs.db:/app/certs.db
+    restart: "no"
+
+  web:
+    image: basics89/cert_tracker_web:1.0.1
+    ports:
+      - "5001:5001"
+    volumes:
+      - ./certs.db:/app/certs.db
+    depends_on:
+      - job
+
