@@ -15,4 +15,3 @@ services:
       - ./certs.db:/app/certs.db
     depends_on:
       - job
-
